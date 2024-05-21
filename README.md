@@ -19,11 +19,11 @@ inside nano /etc/default/grub you see:
 
 GRUB_CMDLINE_LINUX_DEFAULT="quiet" change to:
 
-for intel CPU:
+For intel CPU:
 
 GRUB_CMDLINE_LINUX_DEFAULT="quiet intel_iommu=on iommu=pt"
 
-for AMD CPU:
+Or for AMD CPU:
 
 GRUB_CMDLINE_LINUX_DEFAULT="quiet amd_iommu=on iommu=pt"
 
@@ -33,3 +33,30 @@ GRUB_CMDLINE_LINUX_DEFAULT="quiet amd_iommu=on iommu=pt"
 command line:
 
 dmesg | grep -e DMAR -e IOMMU
+
+4-run the command "update-grub" now reboot.
+
+command line:
+
+update-grub
+
+reboot
+
+5-Enable VFIO Modules add the following modules:
+
+command line:
+
+nano /etc/modules
+
+vfio
+vfio_iommu_type1
+vfio_pci
+vfio_virqfd
+
+7- run the command update-initramfs -u -k all and reboot
+
+command line:
+
+update-initramfs -u -k all
+
+reboot
