@@ -15,18 +15,18 @@ nano /etc/default/grub
 GRUB_CMDLINE_LINUX_DEFAULT="quiet amd_iommu=on iommu=pt"
 ```
 ## 2-Verify that IOMMU is enabled by running and looking for a line indicating it is enabled
-command line:
+* command line:
 ```bash
 dmesg | grep -e DMAR -e IOMMU
 ```
 ## 3-run the command "update-grub" and reboot.
-command line:
+* command line:
 ```bash
 update-grub
 reboot
 ```
 ## 4-Enable VFIO Modules add the following modules:
-command line:
+* command line:
 ```bash
 nano /etc/modules
 vfio
@@ -35,25 +35,25 @@ vfio_pci
 vfio_virqfd
 ```
 ## 5- run the command update-initramfs -u -k all and reboot
-command line:
+* command line:
 ```bash
 update-initramfs -u -k all
 reboot
 ```
 ## 6-Verify the modules are enabled with dmesg | grep -i vfio and checking the driver version line is present
-command line:
+* command line:
 ```bash
 dmesg | grep -i vfio
 ```
 ### 7-**FOR GPU Passthrough ONLY** Isolation From the Host (amend the below to include the IDs of the device you want to isolate)
-Get device IDs command line:
+* Get device IDs command line:
 ```bash
 lspci -nn
 ```
-Example:
+* Example:
 echo "options vfio-pci ids=????:????,????:???? disable_vga=1" > /etc/modprobe.d/vfio.conf
 ## 8-**FOR GPU Passthrough ONLY** Blacklist GPU drivers (here are all that you would ever need)
-command line:
+* command line:
 ```bash
 echo "blacklist radeon" >> /etc/modprobe.d/blacklist.conf 
 echo "blacklist nouveau" >> /etc/modprobe.d/blacklist.conf 
