@@ -19,7 +19,7 @@ GRUB_CMDLINE_LINUX_DEFAULT="quiet amd_iommu=on iommu=pt"
 ```bash
 dmesg | grep -e DMAR -e IOMMU
 ```
-## 3-run the command "update-grub" and reboot.
+## 3-Run the command "update-grub" and reboot.
 * command line:
 ```bash
 update-grub
@@ -61,4 +61,4 @@ echo "blacklist nvidia" >> /etc/modprobe.d/blacklist.conf
 echo "blacklist nvidiafb" >> /etc/modprobe.d/blacklist.conf
 echo "blacklist nvidia_drm" >> /etc/modprobe.d/blacklist.conf 
 ```
-## 9-Reboot your machine, be sure to use the web gui because with the gpu passed through you will no longer get video out. The start up will begin but then appear to hang even though proxmox has started fine.
+### 9-Reboot your machine, be sure to use the web gui because with the gpu passed through you will no longer get video out. The start up will begin but then appear to hang even though proxmox has started fine.
