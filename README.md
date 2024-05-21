@@ -12,22 +12,15 @@ If you "PCI passthrough" a device, the device is not available to the host anymo
 
 ### 2-Enable IOMMU in GRUB (check Intel or AMD commands below - choose the right one) 
 
-command line:
+For intel CPU command line: 
 
 ```bash
-
 nano /etc/default/grub
 
-inside nano /etc/default/grub you see: 
-
-GRUB_CMDLINE_LINUX_DEFAULT="quiet" change to:
-
-For intel CPU:
-
 GRUB_CMDLINE_LINUX_DEFAULT="quiet intel_iommu=on iommu=pt"
-
-Or for AMD CPU:
-
+```
+** Or for AMD CPU command line:
+```bash
 GRUB_CMDLINE_LINUX_DEFAULT="quiet amd_iommu=on iommu=pt"
 ```
 
