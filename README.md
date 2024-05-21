@@ -10,7 +10,7 @@ If you "PCI passthrough" a device, the device is not available to the host anymo
 ### 1- In your device BIOS make sure the following is enabled in the BIOS: Intel VT-d & VT-x – Intel Compatible list All AMD CPUs.
 
 
-2-Enable IOMMU in GRUB (check Intel or AMD commands below - choose the right one) 
+### 2-Enable IOMMU in GRUB (check Intel or AMD commands below - choose the right one) 
 
 command line:
 
@@ -29,14 +29,14 @@ Or for AMD CPU:
 GRUB_CMDLINE_LINUX_DEFAULT="quiet amd_iommu=on iommu=pt"
 
 
-3-Verify that IOMMU is enabled by running and looking for a line indicating it is enabled
+### 3-Verify that IOMMU is enabled by running and looking for a line indicating it is enabled
 
 command line:
 
 dmesg | grep -e DMAR -e IOMMU
 
 
-4-run the command "update-grub" and reboot.
+### 4-run the command "update-grub" and reboot.
 
 command line:
 
@@ -45,7 +45,7 @@ update-grub
 reboot
 
 
-5-Enable VFIO Modules add the following modules:
+### 5-Enable VFIO Modules add the following modules:
 
 command line:
 
@@ -57,7 +57,7 @@ vfio_pci
 vfio_virqfd
 
 
-6- run the command update-initramfs -u -k all and reboot
+### 6- run the command update-initramfs -u -k all and reboot
 
 command line:
 
@@ -66,14 +66,14 @@ update-initramfs -u -k all
 reboot
 
 
-7-Verify the modules are enabled with dmesg | grep -i vfio and checking the driver version line is present
+### 7-Verify the modules are enabled with dmesg | grep -i vfio and checking the driver version line is present
 
 command line:
 
 dmesg | grep -i vfio
 
 
-8-**FOR GPU Passthrough ONLY** Isolation From the Host (amend the below to include the IDs of the device you want to isolate)
+### 8-**FOR GPU Passthrough ONLY** Isolation From the Host (amend the below to include the IDs of the device you want to isolate)
 
 Get device IDs command line:
 
@@ -83,7 +83,7 @@ Example:
 echo "options vfio-pci ids=????:????,????:???? disable_vga=1" > /etc/modprobe.d/vfio.conf
 
 
-9-**FOR GPU Passthrough ONLY** Blacklist GPU drivers (here are all that you would ever need)
+### 9-**FOR GPU Passthrough ONLY** Blacklist GPU drivers (here are all that you would ever need)
 
 echo "blacklist radeon" >> /etc/modprobe.d/blacklist.conf 
 
@@ -96,4 +96,4 @@ echo "blacklist nvidiafb" >> /etc/modprobe.d/blacklist.conf
 echo "blacklist nvidia_drm" >> /etc/modprobe.d/blacklist.conf 
 
 
-Reboot your machine, be sure to use the web gui because with the gpu passed through you will no longer get video out. The start up will begin but then appear to hang even though proxmox has started fine.
+## Reboot your machine, be sure to use the web gui because with the gpu passed through you will no longer get video out. The start up will begin but then appear to hang even though proxmox has started fine.
