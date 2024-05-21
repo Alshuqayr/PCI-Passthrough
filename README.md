@@ -4,7 +4,7 @@ PCI passthrough allows you to use a physical PCI device (graphics card, network 
 If you "PCI passthrough" a device, the device is not available to the host anymore. Note that VMs with passed-through devices cannot be migrated.
 
 
-## Let's start step by step:
+# Let's start step by step:
 
 
 ### 1- In your device BIOS make sure the following is enabled in the BIOS: Intel VT-d & VT-x – Intel Compatible list All AMD CPUs.
