@@ -7,7 +7,7 @@ If you "PCI passthrough" a device, the device is not available to the host anymo
 ## Let's start step by step:
 
 
-1- In your device BIOS make sure the following is enabled in the BIOS: Intel VT-d & VT-x – Intel Compatible list All AMD CPUs.
+### 1- In your device BIOS make sure the following is enabled in the BIOS: Intel VT-d & VT-x – Intel Compatible list All AMD CPUs.
 
 
 2-Enable IOMMU in GRUB (check Intel or AMD commands below - choose the right one) 
