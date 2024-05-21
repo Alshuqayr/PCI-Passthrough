@@ -50,14 +50,14 @@ reboot
 ```bash
 dmesg | grep -i vfio
 ```
-### 7-**FOR GPU Passthrough ONLY** Isolation From the Host (amend the below to include the IDs of the device you want to isolate)
+### 7-*FOR GPU Passthrough ONLY* Isolation From the Host (amend the below to include the IDs of the device you want to isolate)
 * Get device IDs command line:
 ```bash
 lspci -nn
 ```
 * Example:
 echo "options vfio-pci ids=????:????,????:???? disable_vga=1" > /etc/modprobe.d/vfio.conf
-### 8-**FOR GPU Passthrough ONLY** Blacklist GPU drivers (here are all that you would ever need)
+### 8-*FOR GPU Passthrough ONLY* Blacklist GPU drivers (here are all that you would ever need)
 * command line:
 ```bash
 echo "blacklist radeon" >> /etc/modprobe.d/blacklist.conf 
