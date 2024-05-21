@@ -1,11 +1,8 @@
 # PCI-Passthrough
-PCI passthrough allows you to use a physical PCI device (graphics card, network card) inside a VM (KVM virtualization only).
-
-If you "PCI passthrough" a device, the device is not available to the host anymore. Note that VMs with passed-through devices cannot be migrated.
-
-
+* PCI passthrough allows you to use a physical PCI device (graphics card, network card) inside a VM (KVM virtualization only).
+* If you "PCI passthrough" a device, the device is not available to the host anymore. Note that VMs with passed-through devices cannot be migrated.
 # Let's start step by step:
-In your device BIOS make sure the following is enabled in the BIOS: Intel VT-d & VT-x – Intel Compatible list All AMD CPUs.
+* In your device BIOS make sure the following is enabled in the BIOS: Intel VT-d & VT-x – Intel Compatible list All AMD CPUs.
 ## 1-Enable IOMMU in GRUB (check Intel or AMD commands below - ** choose the right one)
 ** For intel CPU command line: 
 ```bash
