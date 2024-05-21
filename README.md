@@ -14,6 +14,8 @@ If you "PCI passthrough" a device, the device is not available to the host anymo
 
 command line:
 
+```bash
+
 nano /etc/default/grub
 
 inside nano /etc/default/grub you see: 
@@ -27,7 +29,7 @@ GRUB_CMDLINE_LINUX_DEFAULT="quiet intel_iommu=on iommu=pt"
 Or for AMD CPU:
 
 GRUB_CMDLINE_LINUX_DEFAULT="quiet amd_iommu=on iommu=pt"
-
+```
 
 ### 3-Verify that IOMMU is enabled by running and looking for a line indicating it is enabled
 
