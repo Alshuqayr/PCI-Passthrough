@@ -34,7 +34,7 @@ vfio_iommu_type1
 vfio_pci
 vfio_virqfd
 ```
-## 5- run the command update-initramfs -u -k all and reboot
+## 5-run the command update-initramfs -u -k all and reboot
 * command line:
 ```bash
 update-initramfs -u -k all
@@ -45,7 +45,7 @@ reboot
 ```bash
 dmesg | grep -i vfio
 ```
-### 7-**FOR GPU Passthrough ONLY** Isolation From the Host (amend the below to include the IDs of the device you want to isolate)
+## 7-**FOR GPU Passthrough ONLY** Isolation From the Host (amend the below to include the IDs of the device you want to isolate)
 * Get device IDs command line:
 ```bash
 lspci -nn
