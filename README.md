@@ -3,6 +3,7 @@ PCI passthrough allows you to use a physical PCI device (graphics card, network 
 
 If you "PCI passthrough" a device, the device is not available to the host anymore. Note that VMs with passed-through devices cannot be migrated.
 
+
 Let's start step by step:
 
 
@@ -34,6 +35,7 @@ command line:
 
 dmesg | grep -e DMAR -e IOMMU
 
+
 4-run the command "update-grub" and reboot.
 
 command line:
@@ -41,6 +43,7 @@ command line:
 update-grub
 
 reboot
+
 
 5-Enable VFIO Modules add the following modules:
 
@@ -53,6 +56,7 @@ vfio_iommu_type1
 vfio_pci
 vfio_virqfd
 
+
 6- run the command update-initramfs -u -k all and reboot
 
 command line:
@@ -61,11 +65,13 @@ update-initramfs -u -k all
 
 reboot
 
+
 7-Verify the modules are enabled with dmesg | grep -i vfio and checking the driver version line is present
 
 command line:
 
 dmesg | grep -i vfio
+
 
 8-**FOR GPU Passthrough ONLY** Isolation From the Host (amend the below to include the IDs of the device you want to isolate)
 
@@ -75,6 +81,7 @@ lspci -nn
 
 Example:
 echo "options vfio-pci ids=????:????,????:???? disable_vga=1" > /etc/modprobe.d/vfio.conf
+
 
 9-**FOR GPU Passthrough ONLY** Blacklist GPU drivers (here are all that you would ever need)
 
